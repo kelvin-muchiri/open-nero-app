@@ -1,0 +1,19 @@
+# ignore everthing
+**
+# allow the following
+!apps/admin/public
+!apps/admin/src
+!apps/admin/package.json
+!apps/admin/tsconfig.json
+!packages
+!yarn.lock
+!package.json
+!tsconfig.json
+!tsconfig.build.json
+!nginx.conf
+!.eslintignore
+!.eslintrc.js
+!.prettierrc
+# we finally again ignore the following from the folders allowed above
+**/*test
+**/*dist

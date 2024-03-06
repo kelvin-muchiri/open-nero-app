@@ -1,0 +1,36 @@
+{
+  "name": "@nero/utils",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "config": {
+    "folderName": "utils"
+  },
+  "scripts": {
+    "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "prepack": "yarn build",
+    "build": "yarn clean && yarn compile",
+    "compile": "tsc --build ./tsconfig.cjs.json ./tsconfig.esm.json",
+    "test": "cd ../../ && pwd && yarn test packages/$npm_package_config_folderName --verbose",
+    "lint": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0"
+  },
+  "dependencies": {
+    "@nero/query-api-service": "1.0.0",
+    "@nero/auth": "1.0.0",
+    "isomorphic-dompurify": "^0.19.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  }
+}

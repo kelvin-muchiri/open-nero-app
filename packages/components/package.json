@@ -1,0 +1,41 @@
+{
+  "name": "@nero/components",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "config": {
+    "folderName": "components"
+  },
+  "scripts": {
+    "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "prepack": "yarn build",
+    "build": "yarn clean && yarn compile && yarn copy-files",
+    "compile": "tsc --build ./tsconfig.cjs.json ./tsconfig.esm.json",
+    "copy-files": "copyfiles -u 1 src/**/*.css src/**/*.png src/**/*.jpg dist/",
+    "test": "cd ../../ && pwd && yarn test packages/$npm_package_config_folderName --verbose",
+    "lint": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0"
+  },
+  "dependencies": {
+    "@nero/api-service": "1.0.0",
+    "@nero/query-api-service": "1.0.0",
+    "@nero/utils": "1.0.0",
+    "@nero/auth": "1.0.0"
+  },
+  "devDependencies": {
+    "@types/dompurify": "^2.3.3"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  }
+}

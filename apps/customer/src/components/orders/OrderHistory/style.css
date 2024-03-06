@@ -1,0 +1,13 @@
+.order-history__btn_new_order {
+  float: right;
+}
+
+.order-history__table {
+  margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+  .order-history__btn_new_order {
+    float: none;
+  }
+}

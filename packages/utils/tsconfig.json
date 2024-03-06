@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "composite": true
+  },
+  "references": [
+    {
+      "path": "../query-api-service"
+    },
+    {
+      "path": "../auth"
+    }
+  ],
+  "include": ["src"],
+  "exclude": ["**/node_modules", "**/coverage", "**/dist", "**/build", "**/*tests"]
+}

@@ -1,0 +1,103 @@
+FROM node:16-bullseye-slim as base
+
+# set for base and all layer that inherit from it
+ENV NODE_ENV production
+ARG GOOGLE_RECAPTCHA_SITE_KEY
+
+# Install all node_modules, including dev dependencies
+FROM base as deps
+
+WORKDIR /myapp
+
+COPY package.json .
+COPY yarn.lock .
+COPY ./apps/customer/package.json apps/customer/
+COPY ./packages/api-service/package.json packages/api-service/
+COPY ./packages/auth/package.json packages/auth/
+COPY ./packages/components/package.json packages/components/
+COPY ./packages/query-api-service/package.json packages/query-api-service/
+COPY ./packages/utils/package.json packages/utils/
+
+RUN yarn install --pure-lockfile --non-interactive --production=false
+
+# Setup production node_modules
+FROM base as production-deps
+
+WORKDIR /myapp
+
+COPY --from=deps /myapp/node_modules /myapp/node_modules
+COPY package.json .
+COPY yarn.lock .
+COPY ./apps/customer/package.json apps/customer/
+COPY ./packages/api-service/package.json packages/api-service/
+COPY ./packages/auth/package.json packages/auth/
+COPY ./packages/components/package.json packages/components/
+COPY ./packages/query-api-service/package.json packages/query-api-service/
+COPY ./packages/utils/package.json packages/utils/
+
+RUN npm prune --production
+
+# Build the app
+FROM base as build
+
+ENV REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY=$GOOGLE_RECAPTCHA_SITE_KEY
+
+WORKDIR /myapp
+
+COPY --from=deps /myapp/node_modules /myapp/node_modules
+
+COPY . .
+
+WORKDIR /myapp/packages/api-service
+RUN yarn build
+
+WORKDIR /myapp/packages/query-api-service
+RUN yarn build
+
+WORKDIR /myapp/packages/auth
+RUN yarn build
+
+WORKDIR /myapp/packages/utils
+RUN yarn build
+
+WORKDIR /myapp/packages/components
+RUN yarn build
+
+WORKDIR /myapp/apps/customer
+RUN yarn build && yarn prod:build-server
+
+# Finally, build the production image with minimal footprint
+FROM base
+
+ENV PORT="3006"
+ENV NODE_ENV="production"
+
+WORKDIR /myapp
+
+COPY --from=production-deps /myapp/node_modules /myapp/node_modules
+
+COPY --from=build /myapp/package.json /myapp/package.json
+
+COPY --from=build /myapp/apps/customer/build /myapp/apps/customer/build
+COPY --from=build /myapp/apps/customer/server-build /myapp/apps/customer/server-build
+COPY --from=build /myapp/apps/customer/package.json /myapp/apps/customer/package.json
+
+COPY --from=build /myapp/packages/api-service/package.json /myapp/packages/api-service/package.json
+COPY --from=build /myapp/packages/auth/package.json /myapp/packages/auth/package.json
+COPY --from=build /myapp/packages/components/package.json /myapp/packages/components/package.json
+COPY --from=build /myapp/packages/query-api-service/package.json /myapp/packages/query-api-service/package.json
+COPY --from=build /myapp/packages/utils/package.json /myapp/packages/utils/package.json
+
+COPY --from=build /myapp/packages/api-service/dist /myapp/packages/api-service/dist
+COPY --from=build /myapp/packages/auth/dist /myapp/packages/auth/dist
+COPY --from=build /myapp/packages/components/dist /myapp/packages/components/dist
+COPY --from=build /myapp/packages/query-api-service/dist /myapp/packages/query-api-service/dist
+COPY --from=build /myapp/packages/utils/dist /myapp/packages/utils/dist
+
+WORKDIR /myapp/apps/customer
+
+# Expose port
+EXPOSE 3006
+
+# Start server
+CMD ["yarn", "serve:ssr"]

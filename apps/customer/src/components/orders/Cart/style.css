@@ -1,0 +1,21 @@
+.cart__item,
+.cart__summary-coupon {
+  padding-bottom: 10px;
+}
+
+.cart__summary-heading {
+  text-transform: uppercase;
+}
+.cart__summary-coupon-link {
+  text-decoration: underline;
+  margin-bottom: 10px;
+  display: block;
+  float: right;
+  cursor: pointer;
+}
+.cart__summary-total {
+  margin-bottom: 10px;
+}
+.cart__summary-total-value {
+  font-weight: bold;
+}

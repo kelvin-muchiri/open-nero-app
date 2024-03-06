@@ -1,0 +1,71 @@
+/*@import '~antd/dist/antd.css';*/
+@import '~antd/dist/antd.variable.min.css';
+
+.bg-white {
+  background: #fff;
+}
+.bg-grey {
+  background: #ececec;
+}
+.full-height {
+  min-height: 100vh;
+}
+.text-center {
+  text-align: center;
+}
+.text--meta {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 11px;
+}
+.steps-content {
+  padding-top: 20px;
+}
+.loader-wrapper {
+  margin: 20px 0;
+  margin-bottom: 20px;
+  padding: 30px 50px;
+  text-align: center;
+  border-radius: 4px;
+}
+.grecaptcha-badge {
+  visibility: hidden;
+}
+.google-recaptcha-branding {
+  font-size: 11px;
+  padding-bottom: 10px;
+}
+
+/** nero **/
+
+.nero-image-default img {
+  object-fit: cover;
+}
+.nero-wrapper-960 {
+  margin-right: auto; /* 1 */
+  margin-left: auto; /* 1 */
+
+  max-width: 960px; /* 2 */
+
+  padding-right: 10px; /* 3 */
+  padding-left: 10px; /* 3 */
+}
+.nero-wrapper-1280 {
+  margin-right: auto; /* 1 */
+  margin-left: auto; /* 1 */
+
+  max-width: 1280px; /* 2 */
+
+  padding-right: 80px; /* 3 */
+  padding-left: 80px; /* 3 */
+}
+
+/* login  */
+.login-form__forgot {
+  float: right;
+}
+
+@media (max-width: 767px) {
+  .nero-image-default img {
+    max-width: 100% !important;
+  }
+}

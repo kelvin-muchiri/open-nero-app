@@ -1,0 +1,44 @@
+{
+  "name": "customer",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "cd ../ && yarn test customer-app --verbose && cd customer-app",
+    "eject": "react-scripts eject",
+    "prod:build-server": "NODE_ENV=production webpack --config webpack.server.js --mode=production",
+    "dev:build-server": "NODE_ENV=development webpack --config webpack.server.js --mode=development",
+    "dev:ssr": "yarn build && yarn dev:build-server && yarn serve:ssr",
+    "serve:ssr": "node ./server-build/index.js"
+  },
+  "dependencies": {
+    "@nero/api-service": "1.0.0",
+    "@nero/auth": "1.0.0",
+    "@nero/components": "1.0.0",
+    "@nero/query-api-service": "1.0.0",
+    "@nero/utils": "1.0.0",
+    "@paypal/react-paypal-js": "^7.6.0",
+    "@tawk.to/tawk-messenger-react": "^2.0.1",
+    "compression": "^1.7.4",
+    "express": "^4.18.1",
+    "react-ga4": "^2.1.0",
+    "react-google-recaptcha-v3": "^1.9.8",
+    "react-transition-group": "^4.4.2",
+    "serialize-javascript": "^6.0.0",
+    "use-react-router-breadcrumbs": "^3.1.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "@types/compression": "^1.7.2",
+    "@types/express": "^4.17.13",
+    "@types/react-transition-group": "^4.4.5",
+    "@types/serialize-javascript": "^5.0.2",
+    "dotenv-webpack": "^7.1.1",
+    "ignore-loader": "^0.1.2",
+    "ts-loader": "^9.3.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}

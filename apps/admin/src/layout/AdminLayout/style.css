@@ -1,0 +1,48 @@
+.admin-layout-header,
+.admin-layout-background {
+  background: #fff;
+}
+.admin-brand {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.admin-table-header-actions {
+  float: right;
+}
+.admin-layout-table {
+  margin-top: 10px;
+}
+.orphan-form-item label span {
+  display: block;
+  margin-bottom: 20px;
+}
+.pricing__list,
+.pricing__table {
+  margin-top: 20px;
+}
+.pricing__table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.pricing__table td,
+.pricing__table th {
+  text-align: left;
+  padding: 8px;
+}
+.pricing__list {
+  max-width: 300px;
+}
+.pricing__list_item {
+  margin-bottom: 8px;
+}
+.admin-table-header {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+  .admin-table-header-actions {
+    float: none;
+    margin-bottom: 10px;
+  }
+}

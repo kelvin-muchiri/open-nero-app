@@ -1,0 +1,67 @@
+:root {
+  --nero-global-color-primary: #00a6ed;
+  --nero-global-color-secondary: #0d2c54;
+  --nero-global-color-accent: #ffb400;
+  --nero-global-color-accent-hover: #f18f01;
+  --nero-global-color-danger: #ff7875;
+  --nero-global-color-text-light: #f2f7ff;
+  --nero-global-color-text-dark: #525760;
+  --nero-global-color-content-bg: #eaf6ff;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+}
+a,
+p,
+li {
+  line-height: 30px;
+  font-weight: normal;
+}
+.large-text {
+  font-size: 42px !important;
+  line-height: 67px !important;
+  margin-bottom: 49px !important;
+}
+h1 {
+  font-size: 33px !important;
+  line-height: 54px !important;
+  margin-bottom: 30px !important;
+}
+h2,
+.h2 {
+  font-size: 26px !important;
+  line-height: 44px !important;
+  margin-bottom: 19px !important;
+}
+h3,
+.h3 {
+  font-size: 20px !important;
+  line-height: 35px !important;
+  margin-bottom: 12px !important;
+}
+h4 {
+  font-size: 16px !important;
+  line-height: 30px !important;
+  margin-bottom: 7px !important;
+}
+h5 {
+  font-size: 13px !important;
+  line-height: 25px !important;
+  margin-bottom: 4px !important;
+}
+.logo a {
+  font-family: 'Rubik', sans-serif;
+}
+.ant-collapse {
+  font-size: 16px !important;
+}
+.nero-reviews__item-title,
+.nero-reviews__item-rate {
+  font-size: 14px !important;
+}
+.nero-reviews__item-body {
+  font-size: 12px;
+  line-height: 24px;
+}

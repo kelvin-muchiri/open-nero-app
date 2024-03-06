@@ -1,0 +1,17 @@
+.order-detail__btn_pay {
+  float: right;
+}
+
+.order-detail__status-help-text {
+  font-style: italic;
+}
+
+@media (max-width: 767px) {
+  .order-detail__btn_pay {
+    float: none;
+  }
+
+  .order-detail__item {
+    padding-bottom: 10px;
+  }
+}

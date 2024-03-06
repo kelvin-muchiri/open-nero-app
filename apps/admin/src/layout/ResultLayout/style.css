@@ -1,0 +1,9 @@
+.result-layout__content {
+  padding: 20px 50px 0 50px;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.result-layout__content h1 {
+  text-align: center;
+}

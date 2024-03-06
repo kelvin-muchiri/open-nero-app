@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./packages",
+    "paths": {
+      "@nero/api-service/*": ["api-service/src/*"],
+      "@nero/auth/*": ["auth/src/*"],
+      "@nero/components/*": ["components/src/*"],
+      "@nero/query-api-service/*": ["query-api-service/src/*"],
+      "@nero/utils/*": ["utils/src/*"]
+    }
+  },
+  "include": [
+    "packages",
+    "apps",
+    "setupTests.js",
+    "jest.config.js",
+    "babel.config.js",
+    "jest-setup.js",
+    "__mocks__/"
+  ],
+  "exclude": ["**/node_modules", "**/coverage", "**/dist", "**/build"]
+}

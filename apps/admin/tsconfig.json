@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "composite": true
+  },
+  "references": [
+    {
+      "path": "../../packages/api-service"
+    },
+    {
+      "path": "../../packages/query-api-service"
+    },
+    {
+      "path": "../../packages/utils"
+    },
+    {
+      "path": "../../packages/components"
+    },
+    {
+      "path": "../../packages/auth"
+    }
+  ],
+  "include": ["src"],
+  "exclude": ["**/node_modules", "**/coverage", "**/dist", "**/build"]
+}

@@ -1,0 +1,22 @@
+# ignore everthing
+**
+# allow the following
+!apps/customer/public
+!apps/customer/src
+!apps/customer/package.json
+!apps/customer/tsconfig.json
+!apps/customer/tsconfig.server.json
+!apps/customer/webpack.server.js
+!apps/customer/server
+!packages
+!yarn.lock
+!package.json
+!tsconfig.json
+!tsconfig.build.json
+!nginx.conf
+!.eslintignore
+!.eslintrc.js
+!.prettierrc
+# we finally again ignore the following from the folders allowed above
+**/*test
+**/*dist

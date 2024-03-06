@@ -1,0 +1,100 @@
+@import '~antd/dist/antd.variable.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+}
+a,
+p,
+li {
+  line-height: 30px;
+  font-weight: normal;
+}
+.large-text {
+  font-size: 42px !important;
+  line-height: 67px !important;
+  margin-bottom: 49px !important;
+}
+h1 {
+  font-size: 33px !important;
+  line-height: 54px !important;
+  margin-bottom: 30px !important;
+}
+h2,
+.h2 {
+  font-size: 26px !important;
+  line-height: 44px !important;
+  margin-bottom: 19px !important;
+}
+h3,
+.h3 {
+  font-size: 20px !important;
+  line-height: 35px !important;
+  margin-bottom: 12px !important;
+}
+h4 {
+  font-size: 16px !important;
+  line-height: 30px !important;
+  margin-bottom: 7px !important;
+}
+h5 {
+  font-size: 13px !important;
+  line-height: 25px !important;
+  margin-bottom: 4px !important;
+}
+.site-card-border-less-wrapper {
+  padding: 30px;
+  background: #ececec;
+  min-height: 100vh;
+}
+.text--meta {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 11px;
+}
+.nero-table-responsive {
+  overflow-x: auto;
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 25px;
+  color: #fff;
+}
+.steps-content {
+  padding-top: 20px;
+}
+
+/** page editor **/
+.page-editor__blocks {
+  margin: 10px 0;
+}
+
+.page-editor-block__options-menu {
+  position: relative;
+  right: 20px;
+  top: 20px;
+}
+.page-setting-group {
+  padding: 5px 25px;
+  margin-bottom: 10px;
+}
+.page-setting-group label {
+  color: #00000073;
+}
+.page-editor__actions {
+  float: right;
+}
+.page-editor .page-editor__heading {
+  margin-bottom: 0px !important;
+}
+.image-settings__text-editor {
+  background: #e5e4e2;
+  padding: 5px;
+}
+
+@media (max-width: 767px) {
+  .page-editor__actions {
+    float: none;
+  }
+}

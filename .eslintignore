@@ -1,0 +1,11 @@
+**/node_modules
+**/dist
+**/build
+**/types
+.eslintrc.js
+**/*reportWebVitals.*
+**/*webpack.*
+**/*craco.*
+babel.config.js
+setupTests.js
+jest-setup.js
